@@ -139,8 +139,10 @@ class Funkcije
 				/* Ovdje upisuje zadatke ispod svakog naslova*/
 				foreach( $tasks->fetchAll(PDO::FETCH_ASSOC) as $tekst )
 				{
-
 					echo '
+						<input type="checkbox" name="zadatak"' . $tekst["id"] . '"
+						<label for="zadatak"' . $tekst["id"] . '">' . $tekst["tasks"] . '</label>
+						<button class="deleteButton">X</button><br/>
 
 
 
@@ -151,7 +153,7 @@ class Funkcije
 
 				}
 
-				echo '';
+				echo '</div></div>';
 				
 
 

@@ -68,9 +68,16 @@ if( !empty($_POST["titleName"]) )
 		<div id="zadaciGlobal32">
 				<label></label><input type="" name="zadatak">
 							<button>upis</button>
+							<br>
 
-			<p>zadatak 1</p>	
-			<p>zadatak 2</p>
+			<input type="checkbox" name="zadatak32" value="zadatak21">
+			<label for="zadatak32">Nekakav zadatak</label>
+			<button class="deleteButton">X</button>
+			<br>
+			<input type="checkbox" name="zadatak32" value="zadatak21">
+			<label for="zadatak32">Nekakav zadatak2</label>
+			<button class="deleteButton">X</button>
+
 
 		</div>
 
