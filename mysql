@@ -1,0 +1,31 @@
+CREATE TABLE users(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user VARCHAR(32) NOT NULL,
+    email VARCHAR(32) NOT NULL,
+    password VARCHAR(256) NOT NULL
+    );
+
+CREATE TABLE tasks (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    day VARCHAR(32) NOT NULL,
+    checked ENUM("yes", "no"),
+    task VARCHAR(256) NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+    );
+
+CREATE TABLE tasksGlobal ( 
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    user_id INT NOT NULL, 
+    task_name VARCHAR(64) NOT NULL, 
+    opened ENUM("yes", "no"),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+    );
+
+CREATE TABLE pojediniTask (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    task_id INT NOT NULL,
+    tasks TEXT NOT NULL,
+    checked ENUM("yes", "no"),
+    FOREIGN KEY(task_id) REFERENCES tasksGlobal(id)
+    );

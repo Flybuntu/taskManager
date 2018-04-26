@@ -1,0 +1,317 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;} body {line-height: 1;}ol, ul{list-style:none;} blockquote, q{quotes:none;} blockquote:before, blockquote:after, q:before, q:after{content:'';content:none;} :focus{outline:0;} ins{text-decoration:none;} del{text-decoration:line-through;} table{border-collapse:collapse; border-spacing:0;}
+
+
+body {
+	background-image: url("images/wallpaper.jpg");
+	background-size: 120%;
+}
+
+/* NAVIGACIJA nav.php	*/
+
+nav {
+	width: 100%;
+	height: 80px;
+	background-color: black;
+}
+
+#navigacija {
+	width: 900px;
+	margin: auto;
+}
+
+/* NAV LIJEVO */
+#navLijevo {
+	float: left;
+}
+
+#navLijevo ul li {
+	display: inline-block;
+	padding: 20px;
+	margin-top: 10px;
+
+}
+
+#navLijevo ul li a{
+	color: white;
+	text-decoration: none;
+	font-family: arial, helvetica, sans-serif;
+}
+
+/* NAV DESNO */
+#navDesno {
+	float: right;
+}
+
+#navDesno ul li {
+	display: inline-block;
+	padding: 20px;
+	margin-top: 10px;
+	color: white;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 1.2em;
+
+}
+
+#navDesno ul li a{
+	color: white;
+	text-decoration: none;
+	font-family: arial, helvetica, sans-serif;
+}
+
+/* GLAVNI SEKTOR manager.php */
+
+main {
+	width: 900px;
+	height: 100%;
+	background-color: #FAF6EB;
+	margin: 50px auto 50px ;
+	border-radius: 10px;
+	border: 2px solid black;
+}
+
+h1 {
+	text-align: center;
+	font-size: 2em;
+	font-family: arial, helvetica, sans-serif;
+	padding: 10px;
+
+}
+
+
+
+
+/* FORMA manager.php */
+
+.upisPodaci {
+	display: inline-block;
+	float: left;
+	margin: 4px 30px;
+	width: 70%;
+	border: none;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.danSakrij {
+	display:none;
+}
+
+.danNaslov {
+	display: inline-block;
+	float: left;
+	width: 100px;
+	font-family: arial, helvetica, sans-serif;
+	padding: 10px 10px;
+
+}
+
+.subKalendar {
+	display: inline-block;
+	float: left;
+	height: 25px;
+	width: 30px;
+	margin: 4px 0px 15px;
+	border: 1px solid black;
+	border-radius: 20px;
+	background-color: green;
+	font-weight: bold;
+	color: white;
+	font-size: 1.2em;
+}
+
+.divDani {
+	background: blue;
+	color: red;
+}
+
+/* Dnevni TASKOVI manager.php */
+
+.clear {
+	clear: both;
+}
+
+.zadaci {
+	float: left;
+	width: 750px;
+	margin: 5px;
+	margin-left: 50px;
+}
+
+.zadaci p {
+	padding: 5px;
+}
+
+/* checkbox task manager.php */
+
+input[type=checkbox]:checked + label {
+  color:red;
+  text-decoration: line-through;
+} 
+
+
+
+/* DELETE GUMB za brisat taskov manage.php */
+
+.checkBox {
+	float: left;
+	margin: 7px;
+
+}
+
+.deleteButton {
+
+}
+
+/* REGISTRACIJA registracija.php */
+
+/* FORM registracija.php */
+
+#regFormDiv {
+	padding-top: 30px;
+}
+
+#regFormDiv form {
+	text-align: left;
+	margin-left: 10%;
+}
+
+#regFormDiv label {
+	display: block;
+	font-family: arial, helvetica, sans-serif;
+	padding: 10px 0px;
+	line-height: 20px;
+}
+
+#regFormDiv form input {
+
+	border-radius: 5px;
+	width: 85%;
+	display: block;
+	margin: 0px;
+	border: 1px solid black;
+	padding: 10px 15px;
+}
+
+/* REGISTRIRAJ SUBMIT GUMB*/
+
+#registriraj {
+	margin-top: 20px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: #1072D6;
+	color: white;
+}
+
+#registriraj:hover {
+	background-color: #16546B;
+	cursor: pointer;
+}
+
+/* NOTIFIKACIJE registracija.php*/
+
+.notification {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.regNot  {
+	padding: 10px;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 1.2em;
+}
+
+
+
+/* LOGIN login.php*/
+
+#logFormDiv {
+	padding-top: 30px;
+}
+
+#logFormDiv form {
+	text-align: left;
+	margin-left: 10%;
+}
+
+#logFormDiv label {
+	display: block;
+	font-family: arial, helvetica, sans-serif;
+	padding: 10px 0px;
+	line-height: 20px;
+}
+
+#logFormDiv form input {
+
+	border-radius: 5px;
+	width: 85%;
+	display: block;
+	margin: 0px;
+	border: 1px solid black;
+	padding: 10px 15px;
+}
+
+/* LOGIN SUBMIT GUMB */
+#login {
+	margin-top: 20px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: #1072D6;
+	color: white;
+}
+
+#login:hover {
+	background-color: #16546B;
+	cursor: pointer;
+}
+
+/* tasks.php */
+
+
+/* prva form za upis naslov */
+#formGlobalTasks {
+	margin: 10px;
+
+}
+#formGlobalTasks label {
+	font-family: arial, helvetica, sans-serif;
+}
+#formGlobalTasks input {
+	border-radius: 5px;
+	width: 75%;
+	margin: 0px;
+	border: 1px solid black;
+	padding: 5px 10px;
+}
+
+#formGlobalTasks button {
+	padding: 5px;
+	border-radius: 5px;
+}
+
+/* naslov div i zadaci div */
+
+.naslov {
+	width: 80%;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: auto;
+	margin-top: 30px;
+	padding: 10px;
+}
+
+.naslov h2 {
+	font-family: arial, helvetica, sans-serif;
+	position: relative;
+	bottom: 23px;
+	background-color: #FAF6EB;
+	padding: 4px;
+	width: 54px;
+}
+
+.sakrij {
+	float: right;
+	margin-top: -45px;
+	border: none;
+	background: #FAF6EB;
+}
