@@ -117,6 +117,8 @@ class Funkcije
 			$tasks = $conn->prepare($sql_tasks);
 			$tasks->bindParam(":task_id", $title["id"]);
 			$tasks->execute();
+			$zadatakId = "zadatak" . $title["id"];
+
 	
 			echo 
 			'	
@@ -127,28 +129,29 @@ class Funkcije
 					
 					<div id="zadaciGlobal' . $title["id"] . '" class="zadaciGlobal">
 
-							<form action="" method="POST">
 
-								<label for="zadatak' . $title["id"] . '"></label>
-								<input type="text" name="zadatak' . $title["id"] . '" id="zadatak' . $title["id"] .  '">
-								<button>upis</button>
-							</form>
+						<label for="' .$zadatakId . '"></label>
+						<input type="text" name="' .$zadatakId . '" id="' .$zadatakId . '" class="zadatakInput">
+						<button onclick="tasksInj('.$zadatakId.')">upis</button>
+						<br/>
 
 				';
 
 				/* Ovdje upisuje zadatke ispod svakog naslova*/
 				foreach( $tasks->fetchAll(PDO::FETCH_ASSOC) as $tekst )
 				{
+					var_dump($tekst);
 					echo '
-						<input type="checkbox" name="zadatak"' . $tekst["id"] . '"
+						<input type="checkbox" name="zadatak"' . $tekst["id"] . '" class="checkBox"';
+						/* precrtavamo chekirane */
+						if($tekst["checked"] == "yes") { echo "checked"; }
+						else { echo ""; }
+						
+						echo '
+						id="tasksCheck">
 						<label for="zadatak"' . $tekst["id"] . '">' . $tekst["tasks"] . '</label>
 						<button class="deleteButton">X</button><br/>
-
-
-
-
-
-					';
+						';
 
 
 				}
