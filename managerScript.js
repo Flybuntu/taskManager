@@ -69,10 +69,19 @@ document.getElementsByClassName("zadatakInput");
 
 function tasksInj(task)
 {
-	console.log("nes");
+
+	console.log(element);
+
 	taskId = task.id.substring(7);
 	taskInj = task.value;
+
+	var zadGloId = "zadaciGlobal" + taskId;
+	var element = document.getElementById(zadGloId); /* ovo ja za javascrirpt da upise bez reloada*/
+	console.log(element);
+
 	var xhr = new XMLHttpRequest();
+
+
 
 	xhr.open("GET", "ajaxInj.php?taskGlobalValue=" + taskInj + "&taskGlobalId=" + taskId , true);
 

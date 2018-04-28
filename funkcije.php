@@ -140,7 +140,6 @@ class Funkcije
 				/* Ovdje upisuje zadatke ispod svakog naslova*/
 				foreach( $tasks->fetchAll(PDO::FETCH_ASSOC) as $tekst )
 				{
-					var_dump($tekst);
 					echo '
 						<input type="checkbox" name="zadatak"' . $tekst["id"] . '" class="checkBox"';
 						/* precrtavamo chekirane */
