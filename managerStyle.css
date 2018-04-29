@@ -155,12 +155,25 @@ input[type=checkbox]:checked + label {
 
 .checkBox {
 	float: left;
-	margin: 7px;
+	margin: 10px;
+	display: block;
+	height: 20px;
+
+}
+
+.checkBox+label>p{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 1.2em;
+	line-height: 25px;
+	border: 1px solid black;
+	width: 650px;
 
 }
 
 .deleteButton {
-
+	float: right;
+	position: relative;
+	bottom: 23px;
 }
 
 /* REGISTRACIJA registracija.php */
@@ -297,6 +310,7 @@ input[type=checkbox]:checked + label {
 	border-radius: 5px;
 	margin: auto;
 	margin-top: 30px;
+	margin-bottom: 30px;
 	padding: 10px;
 }
 
@@ -304,9 +318,13 @@ input[type=checkbox]:checked + label {
 	font-family: arial, helvetica, sans-serif;
 	position: relative;
 	bottom: 23px;
+	left: 30px;
 	background-color: #FAF6EB;
 	padding: 4px;
-	width: 54px;
+	width: 120px;
+	text-align: center;
+	border-right: 2px solid black;
+	border-left: 2px solid black;
 }
 
 .sakrij {

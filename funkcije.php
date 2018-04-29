@@ -130,8 +130,8 @@ class Funkcije
 					<div id="zadaciGlobal' . $title["id"] . '" class="zadaciGlobal">
 
 
-						<label for="' .$zadatakId . '"></label>
-						<input type="text" name="' .$zadatakId . '" id="' .$zadatakId . '" class="zadatakInput">
+						<label for="' .$zadatakId . '">
+						<input type="text" name="' .$zadatakId . '" id="' .$zadatakId . '" class="zadatakInput"></label>
 						<button onclick="tasksInj('.$zadatakId.')">upis</button>
 						<br/>
 
@@ -141,14 +141,14 @@ class Funkcije
 				foreach( $tasks->fetchAll(PDO::FETCH_ASSOC) as $tekst )
 				{
 					echo '
-						<input type="checkbox" name="zadatak"' . $tekst["id"] . '" class="checkBox"';
+						<input type="checkbox" name="zadatakPoj' . $tekst["id"] . '" class="checkBox"';
 						/* precrtavamo chekirane */
 						if($tekst["checked"] == "yes") { echo "checked"; }
 						else { echo ""; }
 						
 						echo '
 						id="tasksCheck">
-						<label for="zadatak"' . $tekst["id"] . '">' . $tekst["tasks"] . '</label>
+						<label for="checkBox"><p>' . $tekst["tasks"] . '</p></label>
 						<button class="deleteButton">X</button><br/>
 						';
 
