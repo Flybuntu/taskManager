@@ -30,7 +30,7 @@ class Funkcije
 
 		echo '
 			<div class="divDani" id="'.$day.'">
-				<h2 class="danNaslov">'.$day.':</h2>
+				<h2 class="danNaslov">'.ucfirst($day).':</h2>
 
 				<form id="'.$formDay.'" name="'.$formDay.'" class="formTje" method="POST" action="" onsubmit=\'putFocus("'.$formDay.'")\'>
 
@@ -51,7 +51,7 @@ class Funkcije
 						<div class="zadaci zadaci'.$day.'">
 
 							<form class="deleteForm" name="delete'.$zadatak["id"].'" method="POST" action="" enctype="multipart/form-data">
-
+								<div class="divCheck">
 								<input type="checkbox" id="check' . $zadatak["id"] . '" class="checkBox" '; 
 					if($zadatak["checked"] == "yes" ) /* ovo je za ak smo obavili zadatak da ga precrta */
 					{
@@ -60,11 +60,11 @@ class Funkcije
 					{
 						echo "";
 					}
-					echo	'><label for="checkBox">' . $zadatak["task"] . '</label>
+					echo	'><label for="check' . $zadatak["id"] . '"><span></span>' . $zadatak["task"] . '</label>
 
 								<input type="text" name="delete" class="danSakrij" value="'.$zadatak["id"].'">
 								<button class="deleteButton">X</button>
-
+								</div>
 							</form>
 						</div>
 
@@ -141,15 +141,17 @@ class Funkcije
 				foreach( $tasks->fetchAll(PDO::FETCH_ASSOC) as $tekst )
 				{
 					echo '
+						<div class="divCheck">
 						<input type="checkbox" name="zadatakPoj' . $tekst["id"] . '" class="checkBox"';
 						/* precrtavamo chekirane */
 						if($tekst["checked"] == "yes") { echo "checked"; }
 						else { echo ""; }
 						
 						echo '
-						id="tasksCheck">
-						<label for="checkBox"><p>' . $tekst["tasks"] . '</p></label>
+						id="zadatakPoj' . $tekst["id"] . '">
+						<label for="zadatakPoj' . $tekst["id"] . '"><span></span>' . $tekst["tasks"] . '</label>
 						<button class="deleteButton">X</button><br/>
+						</div>
 						';
 
 
