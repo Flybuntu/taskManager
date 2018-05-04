@@ -34,14 +34,12 @@ if( !empty($_GET["taskGlobalValue"]) && !empty($_GET["taskGlobalId"]) )
 {
 	$value = $_GET["taskGlobalValue"];
 	$id = $_GET["taskGlobalId"];
-	echo $id;
 	$sql = 'INSERT INTO `pojediniTask`(`task_id`, `tasks`, `checked`) 
 					VALUES (:id, :task, "no")';
 	$ubaciTask = $conn->prepare($sql);
 	$ubaciTask->bindParam(":id", $id);
 	$ubaciTask->bindParam(":task", $value);
 	$ubaciTask->execute();
-	var_dump($ubaciTask);
 
 }
 

@@ -63,7 +63,7 @@ class Funkcije
 					echo	'><label for="check' . $zadatak["id"] . '"><span></span>' . $zadatak["task"] . '</label>
 
 								<input type="text" name="delete" class="danSakrij" value="'.$zadatak["id"].'">
-								<button class="deleteButton">X</button>
+								<button class="deleteButton">Delete</button>
 								</div>
 							</form>
 						</div>
@@ -140,17 +140,19 @@ class Funkcije
 				/* Ovdje upisuje zadatke ispod svakog naslova*/
 				foreach( $tasks->fetchAll(PDO::FETCH_ASSOC) as $tekst )
 				{
+					$zadTekstId = "zadatakPoj" . $tekst["id"];
+
 					echo '
 						<div class="divCheck">
-						<input type="checkbox" name="zadatakPoj' . $tekst["id"] . '" class="checkBox"';
+						<input type="checkbox" name="' . $zadTekstId . '" class="checkBox"';
 						/* precrtavamo chekirane */
 						if($tekst["checked"] == "yes") { echo "checked"; }
 						else { echo ""; }
 						
 						echo '
-						id="zadatakPoj' . $tekst["id"] . '">
-						<label for="zadatakPoj' . $tekst["id"] . '"><span></span>' . $tekst["tasks"] . '</label>
-						<button class="deleteButton">X</button><br/>
+						id="' . $zadTekstId . '">
+						<label for="' . $zadTekstId . '"><span></span>' . $tekst["tasks"] . '</label>
+						<button class="deleteButton">Delete</button><br/>
 						</div>
 						';
 

@@ -1,9 +1,18 @@
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;} body {line-height: 1;}ol, ul{list-style:none;} blockquote, q{quotes:none;} blockquote:before, blockquote:after, q:before, q:after{content:'';content:none;} :focus{outline:0;} ins{text-decoration:none;} del{text-decoration:line-through;} table{border-collapse:collapse; border-spacing:0;}
 
+*{
+  box-sizing: border-box;
+}
+*:before,
+*:after{
+  box-sizing: border-box;
+}
 
 body {
 	background-image: url("images/wallpaper.jpg");
 	background-size: 120%;
+  min-height: 100%;
+
 }
 
 /* NAVIGACIJA nav.php	*/
@@ -64,9 +73,14 @@ main {
 	width: 900px;
 	height: 100%;
 	background:#40464b;
-	margin: 50px auto 50px ;
+	margin: 50px auto 50px;
 	border-radius: 10px;
 	border: 2px solid black;
+}
+
+.unutarMain {
+	width: 800px;
+	margin: auto;
 }
 
 h1 {
@@ -134,7 +148,7 @@ h1 {
 
 .zadaci {
 	float: left;
-	width: 750px;
+	width: inherit;
 	margin: 5px;
 	margin-left: 50px;
 }
@@ -184,6 +198,30 @@ input[type="checkbox"]:checked + label {
 
 .deleteButton {
 	float: right;
+	width: 70px;
+	height: 25px;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7abcff+0,60abf8+44,4096ee+100;Blue+3D+%2314 */
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f85032+0,f16f5c+50,e73827+100 */
+	background: #f85032; /* Old browsers */
+	background: -moz-linear-gradient(top, #f85032 0%, #f16f5c 50%, #e73827 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #f85032 0%,#f16f5c 50%,#e73827 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #f85032 0%,#f16f5c 50%,#e73827 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=0 ); /* IE6-9 */
+  font-family: 'Oxygen', sans-serif;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: white;
+}
+
+.deleteButton:hover {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a90329+0,d60423+36,bf0000+100 */
+	background: #a90329; /* Old browsers */
+	background: -moz-linear-gradient(top, #a90329 0%, #d60423 36%, #bf0000 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #a90329 0%,#d60423 36%,#bf0000 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #a90329 0%,#d60423 36%,#bf0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#bf0000',GradientType=0 ); /* IE6-9 */
+}	
 }
 
 
@@ -332,7 +370,7 @@ input[type="checkbox"]:checked + label {
 	position: relative;
 	bottom: 23px;
 	left: 30px;
-	background-color: #FAF6EB;
+	background-color: #40464b;
 	padding: 4px;
 	width: 120px;
 	text-align: center;
@@ -346,3 +384,5 @@ input[type="checkbox"]:checked + label {
 	border: none;
 	background: #FAF6EB;
 }
+
+

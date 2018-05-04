@@ -23,38 +23,39 @@ if ( !empty($_POST["delete"]) )
 
 ?>
 	<main>
+		<div class="unutarMain">
+			<h1>Daily Tasks</h1>
 
-		<h1>Daily Tasks</h1>
 
+				<?php
 
-			<?php
+					$tjedan = ["ponedeljak", "utorak", "srijeda", "cetvrtak", "petak", "subota", "nedjelja"];
 
-				$tjedan = ["ponedeljak", "utorak", "srijeda", "cetvrtak", "petak", "subota", "nedjelja"];
-
-				/* Dan forme i Upis taskova na site */
-				foreach($tjedan as $dan)
-				{
-					$sql = 'SELECT id, task, day, checked FROM `tasks` WHERE user_id = :user_id AND day = :day';
-					$zadaci = $conn->prepare($sql);
-					$zadaci->bindParam(":user_id", $_SESSION["user_id"]);
-					$zadaci->bindParam(":day", $dan);
-					$zadaci->execute();
-					Funkcije::addHTMLForm($dan, $zadaci->fetchAll(PDO::FETCH_ASSOC) );
+					/* Dan forme i Upis taskova na site */
+					foreach($tjedan as $dan)
+					{
+						$sql = 'SELECT id, task, day, checked FROM `tasks` WHERE user_id = :user_id AND day = :day';
+						$zadaci = $conn->prepare($sql);
+						$zadaci->bindParam(":user_id", $_SESSION["user_id"]);
+						$zadaci->bindParam(":day", $dan);
+						$zadaci->execute();
+						Funkcije::addHTMLForm($dan, $zadaci->fetchAll(PDO::FETCH_ASSOC) );
+						
+					}
 					
-				}
-				
-				
-				
-				
-		
+					
+					
+					
+			
+						
+
 					
 
-				
 
+				?>
 
-			?>
-
-			<div class="clear"></div>
+				<div class="clear"></div>
+		</div>
 	</main>
 
 <script type="text/javascript" src="managerScript.js"></script>
