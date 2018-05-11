@@ -30,23 +30,27 @@ class Funkcije
 
 		echo '
 			<div class="divDani" id="'.$day.'">
-				<h2 class="danNaslov">'.ucfirst($day).':</h2>
+				<div class="formUpis">
+					<h2 class="danNaslov">'.ucfirst($day).'</h2>
 
-				<form id="'.$formDay.'" name="'.$formDay.'" class="formTje" method="POST" action="" onsubmit=\'putFocus("'.$formDay.'")\'>
+					<form id="'.$formDay.'" name="'.$formDay.'" class="formTje" method="POST" action="" onsubmit=\'putFocus("'.$formDay.'")\'>
 
-					<input type="text" class="upisPodaci" name="upis"/>
-					<input type="text" name="dan" class="danSakrij" value="'.$day.'">
-					<button class="subKalendar">✓</button>
+						<input type="text" class="upisPodaci" name="upis"/>
+						<input type="text" name="dan" class="danSakrij" value="'.$day.'">
+						<button class="subKalendar">✓</button>
 
-				</form>
-			</div>';
+					</form>
+				</div>
+				<br>
+
+			';
 			;
 
 				/* zadaci za svaki dan */
 				foreach($sqlArray as $zadatak) 
 				{
 					echo 
-						'<div class="clear"></div>
+						'
 
 						<div class="zadaci zadaci'.$day.'">
 
@@ -68,14 +72,11 @@ class Funkcije
 							</form>
 						</div>
 
-
 					' ;
 				}
 				
 
-	echo	'
-			
-		';
+	echo	'</div>';
 	}
 
 	/* tasks.php dodajemo naslov za globalne taskove */

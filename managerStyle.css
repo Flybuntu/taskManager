@@ -97,11 +97,15 @@ h1 {
 
 /* FORMA manager.php */
 
+.formUpis {
+	width: 500px;
+	margin: 10px;
+}
+
 .upisPodaci {
 	display: inline-block;
-	float: left;
 	margin: 4px 30px;
-	width: 70%;
+	width: 50%;
 	border: none;
 	padding: 5px;
 	border: 1px solid black;
@@ -114,7 +118,6 @@ h1 {
 
 .danNaslov {
 	display: inline-block;
-	float: left;
 	width: 100px;
 	font-family: arial, helvetica, sans-serif;
 	padding: 10px 10px;
@@ -123,7 +126,6 @@ h1 {
 
 .subKalendar {
 	display: inline-block;
-	float: left;
 	height: 25px;
 	width: 30px;
 	margin: 4px 0px 15px;
@@ -136,8 +138,8 @@ h1 {
 }
 
 .divDani {
-	background: blue;
 	color: white;
+
 }
 
 /* Dnevni TASKOVI manager.php */
@@ -147,7 +149,6 @@ h1 {
 }
 
 .zadaci {
-	float: left;
 	width: inherit;
 	margin: 5px;
 	margin-left: 50px;
@@ -163,6 +164,7 @@ h1 {
 	width: 95%;
 	margin: 10px;
 	padding: 10px;
+
 }
 
 input[type="checkbox"]{
@@ -172,6 +174,7 @@ input[type="checkbox"]{
 
 input[type="checkbox"] + label {
     color:#f2f2f2;
+
 
 }
 
@@ -192,13 +195,14 @@ input[type="checkbox"]:checked + label span {
 
 input[type="checkbox"]:checked + label {
 	color: red;
+	text-decoration: line-through;
 }
 
 /* DELETE GUMB za brisat taskov manage.php */
 
 .deleteButton {
 	float: right;
-	width: 70px;
+	width: 80px;
 	height: 25px;
 		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7abcff+0,60abf8+44,4096ee+100;Blue+3D+%2314 */
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f85032+0,f16f5c+50,e73827+100 */
@@ -210,7 +214,7 @@ input[type="checkbox"]:checked + label {
   font-family: 'Oxygen', sans-serif;
   border-radius: 10px;
   font-size: 1em;
-  font-weight: bold;
+  font-weight: 600;
   color: white;
 }
 
