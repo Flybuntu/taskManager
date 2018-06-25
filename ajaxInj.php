@@ -22,27 +22,23 @@ if(!empty($_GET["checkId"]) && !empty($_GET["checked"]) && !empty($_GET["checkSi
 		$tablica = "tasks";
 	}
 
-	echo $tablica;
+	echo "Ovo je tablica " . $tablica;
 
 
 
 	if($check == "yes") 
 	{
-		$sql_yes = "UPDATE :tablica SET `checked`='yes' WHERE id=:id";
+		$sql_yes = "UPDATE $tablica SET `checked`='yes' WHERE id=:id";
 		$promjeniYes = $conn->prepare($sql_yes);
 		$promjeniYes->bindParam(":id", $id);
-		$promjeniYes->bindParam(":tablica", $tablica);
 		$promjeniYes->execute();
-		var_dump($promjeniYes);
 
 	}
 	elseif($check == "no")
 	{
-		$sql_no = "UPDATE :tablica SET `checked`='no' WHERE id=:id";
+		$sql_no = "UPDATE $tablica SET `checked`='no' WHERE id=:id";
 		$promjeniNo = $conn->prepare($sql_no);
 		$promjeniNo->bindParam(":id", $id);
-		$promjeniNo->bindParam(":tablica", $tablica);
-
 		$promjeniNo->execute();	
 	}
 }
