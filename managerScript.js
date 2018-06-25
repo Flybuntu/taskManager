@@ -19,17 +19,30 @@ function checkFunction()
 	var xhr = new XMLHttpRequest();
 
 	var id = this.id;
+	console.log(id.substring(0,5));
 
 	if(this.checked == true)
 	{
-		xhr.open("GET", "ajaxInj.php?manLinId=" + id.substring(5) + "&manLinChecked=yes", true);
+		xhr.open(
+			"GET", 
+			"ajaxInj.php?checkId=" + id.substring(5) + "&checked=yes" + "&checkSite=" + id.substring(0,5), 
+			true);
 	}
 	else
 	{
-		xhr.open("GET", "ajaxInj.php?manLinId=" + id.substring(5) + "&manLinChecked=no", true);
+		xhr.open(
+			"GET", 
+			"ajaxInj.php?checkId=" + id.substring(5) + "&checked=no" + "&checkSite=" + id.substring(0,5), 
+			true);
 	}
 
+	console.log(xhr);
+
+
+
 	xhr.send();
+	console.log(xhr);
+	console.log(xhr.response);
 
 }
 
@@ -114,3 +127,5 @@ function deleteTasks() {
 	location.reload();
 
 }
+
+/* tasks.php */

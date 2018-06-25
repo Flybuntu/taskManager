@@ -141,7 +141,7 @@ class Funkcije
 				/* Ovdje upisuje zadatke ispod svakog naslova*/
 				foreach( $tasks->fetchAll(PDO::FETCH_ASSOC) as $tekst )
 				{
-					$zadTekstId = "zadatakPoj" . $tekst["id"];
+					$zadTekstId = "zaPoj" . $tekst["id"];
 					$delButId = "butDel" . $tekst["id"];
 
 					echo '

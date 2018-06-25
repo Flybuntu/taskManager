@@ -5,25 +5,45 @@ include_once "functions/dataLogin.php";
 
 /* manager.php injektanje da li je zadatak obavlje, tj line through */
 
-if(!empty($_GET["manLinId"]) && !empty($_GET["manLinChecked"]) )
+if(!empty($_GET["checkId"]) && !empty($_GET["checked"]) && !empty($_GET["checkSite"]) )
 {
-	$id = $_GET["manLinId"];
-	$check = $_GET["manLinChecked"];
+	$id = $_GET["checkId"];
+	$check = $_GET["checked"];
+	$site = $_GET["checkSite"];
 
-	if($check == yes) 
+
+	$tablica = "";
+	if($site == "zaPoj") 
 	{
-		$sql_yes = "UPDATE `tasks` SET `checked`='yes' WHERE id=:id";
+		$tablica = "pojediniTask";
+	}
+	else
+	{
+		$tablica = "tasks";
+	}
+
+	echo $tablica;
+
+
+
+	if($check == "yes") 
+	{
+		$sql_yes = "UPDATE :tablica SET `checked`='yes' WHERE id=:id";
 		$promjeniYes = $conn->prepare($sql_yes);
 		$promjeniYes->bindParam(":id", $id);
+		$promjeniYes->bindParam(":tablica", $tablica);
 		$promjeniYes->execute();
+		var_dump($promjeniYes);
 
 	}
-	elseif($check == no)
+	elseif($check == "no")
 	{
-		$sql_yes = "UPDATE `tasks` SET `checked`='no' WHERE id=:id";
-		$promjeniYes = $conn->prepare($sql_yes);
-		$promjeniYes->bindParam(":id", $id);
-		$promjeniYes->execute();	
+		$sql_no = "UPDATE :tablica SET `checked`='no' WHERE id=:id";
+		$promjeniNo = $conn->prepare($sql_no);
+		$promjeniNo->bindParam(":id", $id);
+		$promjeniNo->bindParam(":tablica", $tablica);
+
+		$promjeniNo->execute();	
 	}
 }
 
