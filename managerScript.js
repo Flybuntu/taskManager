@@ -76,8 +76,23 @@ function openClose(id)
 
 /* tasks.php upis podataka u bazu podataka pomocu ajax */
 
-function tasksInj(task)
+
+var tasksUpis = document.getElementsByClassName("zadatakInput");
+for(var i=0; i<tasksUpis.length; i++)
 {
+	console.log("pojedini input " + tasksUpis[i]);
+
+	tasksUpis[i].addEventListener("keydown", function(e) {
+		if(e.keyCode === 13) {
+			var id = this;
+			tasksInj(id);
+		}
+	});
+}
+
+function tasksInj(task)
+{	
+	console.log(task);
 
 	taskId = task.id.substring(7);
 	taskInj = task.value;
@@ -97,7 +112,6 @@ function tasksInj(task)
 	var poruka = '<div class="divCheck"><input type="checkbox" name="zadatakPoj1" class="checkBox" id="zadatakPoj1"><label for="zadatakPoj1"><span></span>nekakav task</label><button class="deleteButton">Delete</button><br/>';
 
 	location.reload();
-
 }
 
 
@@ -109,10 +123,6 @@ for(var i = 0; i<deleteButtons.length; i++)
 {
 	deleteButtons[i].addEventListener("click", deleteTasks);
 }
-
-console.log(deleteButtons);
-
-console.log("test2");
 
 function deleteTasks() {
 	var id = this.id;

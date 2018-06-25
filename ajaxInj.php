@@ -3,7 +3,7 @@
 include_once "functions/dataLogin.php";
 
 
-/* manager.php injektanje da li je zadatak obavlje, tj line through */
+/* manager.php i tasks.php injektanje da li je zadatak obavlje, tj line through */
 
 if(!empty($_GET["checkId"]) && !empty($_GET["checked"]) && !empty($_GET["checkSite"]) )
 {
@@ -22,12 +22,10 @@ if(!empty($_GET["checkId"]) && !empty($_GET["checked"]) && !empty($_GET["checkSi
 		$tablica = "tasks";
 	}
 
-	echo "Ovo je tablica " . $tablica;
-
-
 
 	if($check == "yes") 
 	{
+
 		$sql_yes = "UPDATE $tablica SET `checked`='yes' WHERE id=:id";
 		$promjeniYes = $conn->prepare($sql_yes);
 		$promjeniYes->bindParam(":id", $id);
