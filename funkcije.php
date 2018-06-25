@@ -122,7 +122,7 @@ class Funkcije
 
 	
 			echo 
-			'	
+				'	
 				<div class="naslov" id="naslov' . $title["id"] . '" >
 			
 					<h2>' . $title["task_name"] . '</h2>
@@ -142,6 +142,7 @@ class Funkcije
 				foreach( $tasks->fetchAll(PDO::FETCH_ASSOC) as $tekst )
 				{
 					$zadTekstId = "zadatakPoj" . $tekst["id"];
+					$delButId = "butDel" . $tekst["id"];
 
 					echo '
 						<div class="divCheck">
@@ -153,31 +154,15 @@ class Funkcije
 						echo '
 						id="' . $zadTekstId . '">
 						<label for="' . $zadTekstId . '"><span></span>' . $tekst["tasks"] . '</label>
-						<button class="deleteButton">Delete</button><br/>
+						<button class="deleteButton" id="' . $delButId . '">Delete</button><br/>
 						</div>
 						';
 
 
 				}
-
 				echo '</div></div>';
-				
-
-
-
-
-
-			
 		} 
-
-
-
-
-
-
 	}
-
-
 }
 
 

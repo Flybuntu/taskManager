@@ -29,7 +29,7 @@ if(!empty($_GET["manLinId"]) && !empty($_GET["manLinChecked"]) )
 
 
 
-/* tasks.php upacujemo pojedine taskove */
+/* tasks.php ubacujemo pojedine taskove */
 if( !empty($_GET["taskGlobalValue"]) && !empty($_GET["taskGlobalId"]) )
 {
 	$value = $_GET["taskGlobalValue"];
@@ -41,6 +41,19 @@ if( !empty($_GET["taskGlobalValue"]) && !empty($_GET["taskGlobalId"]) )
 	$ubaciTask->bindParam(":task", $value);
 	$ubaciTask->execute();
 
+}
+
+
+/* tasks.php delete button */
+
+if( !empty($_GET["deleteTasks"]) )
+{
+	$idDel = $_GET["deleteTasks"];
+
+	$sqlDelete = "DELETE FROM `pojediniTask` WHERE `pojediniTask`.`id` = :idDel";
+	$sqlBrisi = $conn->prepare($sqlDelete);
+	$sqlBrisi->bindParam(":idDel", $idDel);
+	$sqlBrisi->execute();
 }
 
 

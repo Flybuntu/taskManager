@@ -12,14 +12,13 @@ for(var i=0; i<checkBoxes.length; i++)
 }
 
 
-/* Tu injektamo u sql jer chekirano ili nije */
+/* Tu injektamo u sql jel chekirano ili nije */
 function checkFunction() 
 { 
-	console.log("u check functionu sam!");
+
 	var xhr = new XMLHttpRequest();
 
 	var id = this.id;
-	console.log(id);
 
 	if(this.checked == true)
 	{
@@ -38,7 +37,7 @@ function checkFunction()
 
 
 
-/* manager.php Vracamo focus na input nakon entera !Trenutno nije u funkciji*/
+/* manager.php Vracamo focus na input nakon entera !Trenutno nije u funkciji */
 
 function putFocus($id) 
 {
@@ -64,20 +63,15 @@ function openClose(id)
 
 /* tasks.php upis podataka u bazu podataka pomocu ajax */
 
-document.getElementsByClassName("zadatakInput");
-
-
 function tasksInj(task)
 {
 
-	console.log(element);
-
 	taskId = task.id.substring(7);
 	taskInj = task.value;
+	zadaciId = "zadaciGlobal" + taskId;
 
 	var zadGloId = "zadaciGlobal" + taskId;
-	var element = document.getElementById(zadGloId); /* ovo ja za javascrirpt da upise bez reloada*/
-	console.log(element);
+
 
 	var xhr = new XMLHttpRequest();
 
@@ -87,5 +81,36 @@ function tasksInj(task)
 
 	xhr.send();
 
+	var poruka = '<div class="divCheck"><input type="checkbox" name="zadatakPoj1" class="checkBox" id="zadatakPoj1"><label for="zadatakPoj1"><span></span>nekakav task</label><button class="deleteButton">Delete</button><br/>';
+
+	location.reload();
+
+}
+
+
+/* tasks.php delete button */
+
+var deleteButtons = document.getElementsByClassName("deleteButton");
+
+for(var i = 0; i<deleteButtons.length; i++) 
+{
+	deleteButtons[i].addEventListener("click", deleteTasks);
+}
+
+console.log(deleteButtons);
+
+console.log("test2");
+
+function deleteTasks() {
+	var id = this.id;
+	console.log(id);
+
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("GET", "ajaxInj.php?deleteTasks=" + id.substring(6), true);
+
+	xhr.send();
+
+	location.reload();
 
 }
