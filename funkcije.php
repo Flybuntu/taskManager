@@ -134,8 +134,9 @@ class Funkcije
 
 						<label for="' .$zadatakId . '">
 						<input type="text" name="' .$zadatakId . '" id="' .$zadatakId . '" class="zadatakInput"></label>
-						<button onclick="tasksInj('.$zadatakId.')">upis</button>
-						<br/>
+						<button class="upisPodataka" onclick="tasksInj('.$zadatakId.')">Upis</button>
+						<hr/>
+
 
 				';
 
@@ -157,6 +158,7 @@ class Funkcije
 						<label for="' . $zadTekstId . '"><span></span>' . $tekst["tasks"] . '</label>
 						<button class="deleteButton" id="' . $delButId . '">Delete</button><br/>
 						</div>
+						<hr/>
 						';
 
 

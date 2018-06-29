@@ -217,6 +217,7 @@ input[type="checkbox"]:checked + label {
   font-weight: 600;
   color: white;
   margin-top: -5px;
+  margin-right: -15px;
 }
 
 .deleteButton:hover {
@@ -339,24 +340,49 @@ input[type="checkbox"]:checked + label {
 
 /* prva form za upis naslov */
 #formGlobalTasks {
-	margin: 10px;
+	margin-left: 95px;
 
 }
 #formGlobalTasks label {
-	font-family: arial, helvetica, sans-serif;
+  font-family: 'Oxygen', sans-serif;
+   font-weight: 600;
+  font-size: 1em;
+  color: white;
 }
 #formGlobalTasks input {
 	border-radius: 5px;
-	width: 75%;
+	width: 65%;
 	margin: 0px;
-	border: 1px solid black;
 	padding: 5px 10px;
 }
 
 #formGlobalTasks button {
 	padding: 5px;
 	border-radius: 5px;
+	width: 105px;
+	margin-left: 15px;
+  font-family: 'Oxygen', sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9em;
+
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d0e4f7+0,73b1e7+24,0a77d5+50,539fe1+79,87bcea+100;Blue+Pipe+%231 */
+background: #d0e4f7; /* Old browsers */
+background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 24%, #0a77d5 50%, #539fe1 79%, #87bcea 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* IE6-9 */
 }
+
+#formGlobalTasks button:hover {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d8cf4+0,429ce5+24,005ad1+50,3191e0+79,0280e8+100 */
+background: #1d8cf4; /* Old browsers */
+background: -moz-linear-gradient(top, #1d8cf4 0%, #429ce5 24%, #005ad1 50%, #3191e0 79%, #0280e8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #1d8cf4 0%,#429ce5 24%,#005ad1 50%,#3191e0 79%,#0280e8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #1d8cf4 0%,#429ce5 24%,#005ad1 50%,#3191e0 79%,#0280e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d8cf4', endColorstr='#0280e8',GradientType=0 ); /* IE6-9 */
+}
+
 
 /* naslov div i zadaci div */
 
@@ -409,4 +435,43 @@ input[type="checkbox"]:checked + label {
 .brisiNaslov:hover {
 	background: red;
 
+}
+
+hr {
+	width: 95%;
+}
+
+
+.zadatakInput {
+	padding: 5px;
+	border-radius: 5px;
+	width: 80%;
+	margin-left: 15px;
+}
+
+.upisPodataka {
+	padding: 5px;
+	border-radius: 5px;
+	width: 85px;
+	margin-left: 15px;
+  font-family: 'Oxygen', sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9em;
+
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d0e4f7+0,73b1e7+24,0a77d5+50,539fe1+79,87bcea+100;Blue+Pipe+%231 */
+background: #d0e4f7; /* Old browsers */
+background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 24%, #0a77d5 50%, #539fe1 79%, #87bcea 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* IE6-9 */
+}
+
+.upisPodataka:hover {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1d8cf4+0,429ce5+24,005ad1+50,3191e0+79,0280e8+100 */
+background: #1d8cf4; /* Old browsers */
+background: -moz-linear-gradient(top, #1d8cf4 0%, #429ce5 24%, #005ad1 50%, #3191e0 79%, #0280e8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #1d8cf4 0%,#429ce5 24%,#005ad1 50%,#3191e0 79%,#0280e8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #1d8cf4 0%,#429ce5 24%,#005ad1 50%,#3191e0 79%,#0280e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d8cf4', endColorstr='#0280e8',GradientType=0 ); /* IE6-9 */
 }

@@ -18,8 +18,8 @@ if( !empty($_POST["titleName"]) )
 	
 	<h1>Tasks</h1>
 	<form id="formGlobalTasks" action="" method="POST">
-		<label for="taskTitle">Ime Zadatka:</label> <input type="text" name="titleName" id="titleName" >
-			<button onclick="openClose()">Enter task</button>
+		<label for="taskTitle">Task:</label> <input type="text" name="titleName" id="titleName" >
+			<button>Enter task</button>
 	</form>
 
 	
