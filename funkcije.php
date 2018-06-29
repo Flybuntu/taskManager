@@ -114,7 +114,7 @@ class Funkcije
 		foreach( $tasksTitle->fetchAll(PDO::FETCH_ASSOC ) as $title) {
 
 			/* ovdje je sql za zadatke za svaki naslov */
-			$sql_tasks = 'SELECT `id`, `tasks`, `checked` FROM `pojediniTask` WHERE task_id = :task_id';
+			$sql_tasks = 'SELECT `id`, `tasks`, `checked` FROM `pojediniTask` WHERE task_id = :task_id ORDER BY checked DESC';
 			$tasks = $conn->prepare($sql_tasks);
 			$tasks->bindParam(":task_id", $title["id"]);
 			$tasks->execute();

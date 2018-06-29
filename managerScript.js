@@ -1,3 +1,15 @@
+var keksi = document.cookie.split("; ");
+var keksiSlozeni = {};
+
+for(var i=0; i<keksi.length; i++)
+{
+	var odvajanje = keksi[i].split("=");
+	if(odvajanje[0] == "idZaFocus")
+	{
+    document.getElementById(odvajanje[1]).focus();
+
+	}
+}
 
 
 /* manager.php Ovdje koristimo AJAX da vidimo jel smo obavili zadatak */
@@ -36,13 +48,11 @@ function checkFunction()
 			true);
 	}
 
-	console.log(xhr);
 
 
 
 	xhr.send();
-	console.log(xhr);
-	console.log(xhr.response);
+
 
 }
 
@@ -95,6 +105,9 @@ function tasksInj(task)
 	taskId = task.id.substring(7);
 	taskInj = task.value;
 	zadaciId = "zadaciGlobal" + taskId;
+	cistiId = task.id;
+
+	console.log("Proba: " + task.id);
 
 	var zadGloId = "zadaciGlobal" + taskId;
 
@@ -108,8 +121,15 @@ function tasksInj(task)
 	xhr.send();
 
 	var poruka = '<div class="divCheck"><input type="checkbox" name="zadatakPoj1" class="checkBox" id="zadatakPoj1"><label for="zadatakPoj1"><span></span>nekakav task</label><button class="deleteButton">Delete</button><br/>';
+	
+
+
+	document.cookie = "idZaFocus=" + cistiId;
 
 	location.reload();
+
+
+
 }
 
 

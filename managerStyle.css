@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;} body {line-height: 1;}ol, ul{list-style:none;} blockquote, q{quotes:none;} blockquote:before, blockquote:after, q:before, q:after{content:'';content:none;} :focus{outline:0;} ins{text-decoration:none;} del{text-decoration:line-through;} table{border-collapse:collapse; border-spacing:0;}
 
 *{
@@ -174,6 +177,8 @@ input[type="checkbox"]{
 
 input[type="checkbox"] + label {
     color:#f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+
 
 
 }
@@ -203,8 +208,8 @@ input[type="checkbox"]:checked + label {
 .deleteButton {
 	float: right;
 	width: 80px;
-	height: 25px;
-		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7abcff+0,60abf8+44,4096ee+100;Blue+3D+%2314 */
+	padding: 5px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7abcff+0,60abf8+44,4096ee+100;Blue+3D+%2314 */
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f85032+0,f16f5c+50,e73827+100 */
 	background: #f85032; /* Old browsers */
 	background: -moz-linear-gradient(top, #f85032 0%, #f16f5c 50%, #e73827 100%); /* FF3.6-15 */
@@ -212,8 +217,8 @@ input[type="checkbox"]:checked + label {
 	background: linear-gradient(to bottom, #f85032 0%,#f16f5c 50%,#e73827 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=0 ); /* IE6-9 */
   font-family: 'Oxygen', sans-serif;
-  border-radius: 10px;
-  font-size: 1em;
+  border-radius: 5px;
+  font-size: 0.9em;
   font-weight: 600;
   color: white;
   margin-top: -5px;
@@ -407,6 +412,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d8cf4', end
 	text-align: center;
 	border-right: 2px solid black;
 	border-left: 2px solid black;
+  color:#f2f2f2;
 }
 
 
@@ -426,19 +432,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d8cf4', end
 .brisiNaslov {
 	float: right;
 	margin-top: -45px;
-	margin-right: 20px;
+	margin-right: 40px;
 	border: none;
-	background: #FAF6EB;
+	background: #40464b;
+	color: red;
+	font-family: 'Oxygen', sans-serif;
+	font-weight: 1000;
+	font-size: 1em;
+
 
 }
 
 .brisiNaslov:hover {
-	background: red;
-
+	color: #990A22;
 }
 
 hr {
 	width: 95%;
+	border-color: grey;
 }
 
 
@@ -452,8 +463,8 @@ hr {
 .upisPodataka {
 	padding: 5px;
 	border-radius: 5px;
-	width: 85px;
-	margin-left: 15px;
+	width: 80px;
+	margin-left: 19px;
   font-family: 'Oxygen', sans-serif;
   color: white;
   font-weight: 600;

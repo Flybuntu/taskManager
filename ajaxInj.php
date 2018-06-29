@@ -44,6 +44,7 @@ if(!empty($_GET["checkId"]) && !empty($_GET["checked"]) && !empty($_GET["checkSi
 
 
 /* tasks.php ubacujemo pojedine taskove */
+
 if( !empty($_GET["taskGlobalValue"]) && !empty($_GET["taskGlobalId"]) )
 {
 	$value = $_GET["taskGlobalValue"];
