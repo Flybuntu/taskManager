@@ -158,7 +158,7 @@ h1 {
 	padding: 5px;
 }
 
-/* checkbox task manager.php */
+/* 	CHECKBOX task manager.php */
 
 .divCheck {
 	width: 95%;
@@ -216,6 +216,7 @@ input[type="checkbox"]:checked + label {
   font-size: 1em;
   font-weight: 600;
   color: white;
+  margin-top: -5px;
 }
 
 .deleteButton:hover {
@@ -382,6 +383,9 @@ input[type="checkbox"]:checked + label {
 	border-left: 2px solid black;
 }
 
+
+/* tasks.php gumbovi za brisanje i skrivanje */
+
 .sakrij {
 	float: right;
 	margin-top: -45px;
@@ -389,4 +393,20 @@ input[type="checkbox"]:checked + label {
 	background: #FAF6EB;
 }
 
+.sakrij:hover {
+	background: red;
+}
 
+.brisiNaslov {
+	float: right;
+	margin-top: -45px;
+	margin-right: 20px;
+	border: none;
+	background: #FAF6EB;
+
+}
+
+.brisiNaslov:hover {
+	background: red;
+
+}

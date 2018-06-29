@@ -70,5 +70,17 @@ if( !empty($_GET["deleteTasks"]) )
 	$sqlBrisi->execute();
 }
 
+/* tasks.php delete Global tasks button */
+
+if( !empty($_GET["brisiGlobal"]) )
+{
+	$brisiSql = "DELETE FROM `tasksGlobal` WHERE `tasksGlobal`.`id` = :id";
+	$brisiGlobal = $conn->prepare($brisiSql);
+	$brisiGlobal->bindParam(":id", $_GET["brisiGlobal"]);
+	$brisiGlobal->execute();
+
+}
+
+
 
 ?>

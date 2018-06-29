@@ -76,11 +76,10 @@ function openClose(id)
 
 /* tasks.php upis podataka u bazu podataka pomocu ajax */
 
-
+/* Ovo ispod je zbog entera */
 var tasksUpis = document.getElementsByClassName("zadatakInput");
 for(var i=0; i<tasksUpis.length; i++)
 {
-	console.log("pojedini input " + tasksUpis[i]);
 
 	tasksUpis[i].addEventListener("keydown", function(e) {
 		if(e.keyCode === 13) {
@@ -92,7 +91,6 @@ for(var i=0; i<tasksUpis.length; i++)
 
 function tasksInj(task)
 {	
-	console.log(task);
 
 	taskId = task.id.substring(7);
 	taskInj = task.value;
@@ -115,7 +113,7 @@ function tasksInj(task)
 }
 
 
-/* tasks.php delete button */
+/* tasks.php delete button za pojednine mini zadatke*/
 
 var deleteButtons = document.getElementsByClassName("deleteButton");
 
@@ -138,4 +136,25 @@ function deleteTasks() {
 
 }
 
-/* tasks.php */
+/* tasks.php delete button za globalne zadatke */
+
+function deleteGlobal(ajdi) {
+	
+	console.log("u delete globalu sam!");
+
+	var id = ajdi;
+
+	console.log(id.substring(11));
+
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("GET", "ajaxInj.php?brisiGlobal=" + id.substring(11), true);
+
+	xhr.send();
+
+	location.reload();
+
+
+
+	
+}
