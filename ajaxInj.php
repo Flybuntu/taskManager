@@ -82,6 +82,43 @@ if( !empty($_GET["brisiGlobal"]) )
 
 }
 
+/* tasks.php checking if it is open or closed and send JSON array */
+
+if( !empty( $_GET["checkOpenClose"]) )
+{
+	$sql = "SELECT id, opened FROM `tasksGlobal`";
+	$check = $conn->prepare($sql);
+	$products = array();
+
+	if($check->execute())
+	{
+		while($row = $check->fetch(PDO::FETCH_ASSOC))
+		{
+			$products[] = $row;
+		}
+	}
+
+
+	echo json_encode($products);
+}
+
+
+/* tasks.php mijenjamo u bazi podatke za open close */
+
+if( !empty($_GET["openClose"]) && !empty($_GET["openCloseId"]) )
+{
+		echo "tu sam > ";
+		echo $_GET["openClose"] . " ";
+		echo $_GET["openCloseId"] . " ";
+
+
+	$sql = "UPDATE `tasksGlobal` SET `opened` = :openClose WHERE `tasksGlobal`.`id` = :id";
+	$change = $conn->prepare($sql);
+	$change->bindParam(":openClose", $_GET["openClose"]);
+	$change->bindParam(":id", $_GET["openCloseId"]);
+	$change->execute();
+
+}
 
 
 ?>

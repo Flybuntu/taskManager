@@ -103,7 +103,7 @@ class Funkcije
 
 
 		/* Uzimamo prvo naslov */
-		$sql_title = 'SELECT id, task_name, opened FROM `tasksGlobal` WHERE user_id = :user';
+		$sql_title = 'SELECT id, task_name, opened FROM `tasksGlobal` WHERE user_id = :user ORDER BY opened'; 
 		$tasksTitle = $conn->prepare($sql_title);
 		$tasksTitle->bindParam(":user", $_SESSION["user_id"]);
 		$tasksTitle->execute();

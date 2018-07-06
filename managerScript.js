@@ -1,3 +1,10 @@
+/* Da znamo na kojem smo siteu */
+
+var siteLocation = window.location.pathname.split("/");
+
+
+/* ovo je radi focusa*/
+
 var keksi = document.cookie.split("; ");
 var keksiSlozeni = {};
 
@@ -68,36 +75,6 @@ function putFocus($id)
 }
 
 
-/* tasks.php za otvaranje i zatvaranje diva */
-
-function openClose(id) 
-{
-	console.log(id);
-	var numId = id.substring(6);
-	var zadId = document.getElementById("zadaciGlobal" + numId);
-	if(zadId.style.display == "none")
-	{
-		zadId.style.display = "block";
-	} else 
-	{
-		zadId.style.display = "none";
-	}
-}
-
-/* tasks.php upis podataka u bazu podataka pomocu ajax */
-
-/* Ovo ispod je zbog entera */
-var tasksUpis = document.getElementsByClassName("zadatakInput");
-for(var i=0; i<tasksUpis.length; i++)
-{
-
-	tasksUpis[i].addEventListener("keydown", function(e) {
-		if(e.keyCode === 13) {
-			var id = this;
-			tasksInj(id);
-		}
-	});
-}
 
 function tasksInj(task)
 {	
@@ -130,6 +107,19 @@ function tasksInj(task)
 
 
 
+}
+
+/* Ovo ispod je zbog entera */
+var tasksUpis = document.getElementsByClassName("zadatakInput");
+for(var i=0; i<tasksUpis.length; i++)
+{
+
+	tasksUpis[i].addEventListener("keydown", function(e) {
+		if(e.keyCode === 13) {
+			var id = this;
+			tasksInj(id);
+		}
+	});
 }
 
 
@@ -173,8 +163,81 @@ function deleteGlobal(ajdi) {
 	xhr.send();
 
 	location.reload();
-
-
-
 	
+}
+
+
+/* tasks.php za otvaranje i zatvaranje diva */
+
+function openClose(id) 
+{
+
+	console.log(id);
+	var numId = id.substring(6);
+	var zadId = document.getElementById("zadaciGlobal" + numId);
+	var imeId = "zadaciGlobal" + numId;
+
+	var xhr = new XMLHttpRequest();
+
+	if(zadId.style.display == "none")
+	{
+		zadId.style.display = "block";
+		xhr.open("GET", "ajaxInj.php?openClose=yes&openCloseId=" + numId);
+	} else 
+	{
+		zadId.style.display = "none";
+		xhr.open("GET", "ajaxInj.php?openClose=no&openCloseId=" + numId);
+
+	}
+
+	xhr.send();
+	console.log(xhr);
+}
+
+
+/* tasks.php check for open and closed windows on load */
+
+function checkOpenClose() 
+{
+
+	console.log("U check open closeu sam!");
+
+	var prozori = document.getElementsByClassName("zadaciGlobal");
+
+	var xhrCheck = new XMLHttpRequest();
+
+	xhrCheck.open("GET", "ajaxInj.php?checkOpenClose='1'", true);
+
+	xhrCheck.send();
+
+
+	xhrCheck.onreadystatechange = function() 
+	{
+		if(this.readyState == 4  && this.status == 200)
+		{
+			var s = this.responseText;
+			var arrOpenClose = JSON.parse(s);
+			console.log(arrOpenClose);
+
+			for(var i=0; i<arrOpenClose.length; i++)
+			{
+				var idZatvori = "zadaciGlobal" + arrOpenClose[i]["id"];
+
+				if(arrOpenClose[i]["opened"] == "no")	
+				{
+					document.getElementById(idZatvori).style.display = "none";
+				}
+			}
+
+
+		}
+	}
+
+}
+
+
+/* Pokrecemo check close open ako smo u tasks.php */
+if(siteLocation[siteLocation.length-1] == "tasks.php")
+{
+	checkOpenClose();
 }
