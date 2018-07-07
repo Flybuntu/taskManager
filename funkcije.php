@@ -127,7 +127,9 @@ class Funkcije
 			
 					<h2>' . $title["task_name"] . '</h2>
 					<button class="brisiNaslov" id="brisiNaslov' . $title["id"] . '" onclick="deleteGlobal(this.id)">X</button>
-					<button class="sakrij" id="sakrij' . $title["id"] . '" onclick="openClose(this.id)">^</button>
+					<button class="sakrij" id="sakrij' . $title["id"] . '" onclick="openClose(this.id)">
+						<div class="upGumb" id="upDown' . $title["id"] . '"></div>
+					</button>
 					
 					<div id="zadaciGlobal' . $title["id"] . '" class="zadaciGlobal">
 

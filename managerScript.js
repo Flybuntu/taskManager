@@ -176,16 +176,21 @@ function openClose(id)
 	var numId = id.substring(6);
 	var zadId = document.getElementById("zadaciGlobal" + numId);
 	var imeId = "zadaciGlobal" + numId;
+	var goreDoleId = "upDown" + numId;
 
 	var xhr = new XMLHttpRequest();
 
 	if(zadId.style.display == "none")
 	{
 		zadId.style.display = "block";
+		document.getElementById(goreDoleId).classList.add("upGumb");
+		document.getElementById(goreDoleId).classList.remove("downGumb");
 		xhr.open("GET", "ajaxInj.php?openClose=yes&openCloseId=" + numId);
 	} else 
 	{
 		zadId.style.display = "none";
+		document.getElementById(goreDoleId).classList.add("downGumb");
+		document.getElementById(goreDoleId).classList.remove("upGumb");
 		xhr.open("GET", "ajaxInj.php?openClose=no&openCloseId=" + numId);
 
 	}
@@ -222,10 +227,14 @@ function checkOpenClose()
 			for(var i=0; i<arrOpenClose.length; i++)
 			{
 				var idZatvori = "zadaciGlobal" + arrOpenClose[i]["id"];
+				var idUpDown = "upDown" + arrOpenClose[i]["id"];
 
 				if(arrOpenClose[i]["opened"] == "no")	
 				{
 					document.getElementById(idZatvori).style.display = "none";
+					document.getElementById(idUpDown).classList.add("downGumb");
+					document.getElementById(idUpDown).classList.remove("upGumb");
+
 				}
 			}
 

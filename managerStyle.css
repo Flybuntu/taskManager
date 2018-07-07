@@ -195,6 +195,7 @@ input[type="checkbox"] + label span {
 	vertical-align: middle;
 	background:url(images/check_radio_sheet.png) left top no-repeat;
 	cursor: pointer;
+
 }
 
 input[type="checkbox"]:checked + label span {
@@ -423,19 +424,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d8cf4', end
 
 .sakrij {
 	float: right;
-	margin-top: -45px;
+	margin-top: -51px;
 	border: none;
-	background: #FAF6EB;
+	background: #40464B;
 }
 
-.sakrij:hover {
-	background: red;
-}
+
 
 .brisiNaslov {
 	float: right;
 	margin-top: -45px;
-	margin-right: 40px;
+	margin-right: 50px;
 	border: none;
 	background: #40464b;
 	color: red;
@@ -488,4 +487,20 @@ background: -moz-linear-gradient(top, #1d8cf4 0%, #429ce5 24%, #005ad1 50%, #319
 background: -webkit-linear-gradient(top, #1d8cf4 0%,#429ce5 24%,#005ad1 50%,#3191e0 79%,#0280e8 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom, #1d8cf4 0%,#429ce5 24%,#005ad1 50%,#3191e0 79%,#0280e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d8cf4', endColorstr='#0280e8',GradientType=0 ); /* IE6-9 */
+}
+
+.upGumb {
+	background-image: url("images/arrow_up.png");
+	background-size: 30px 30px;
+	background-repeat: no-repeat;
+	width: 27px;
+	height: 40px;
+}
+
+.downGumb {
+	background-image: url("images/arrow_down.png");
+	background-size: 30px 30px;
+	background-repeat: no-repeat;
+	width: 27px;
+	height: 40px;	
 }
