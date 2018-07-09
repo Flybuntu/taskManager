@@ -27,15 +27,16 @@ class Funkcije
 	public function addHTMLForm($day, $sqlArray) 
 	{
 		$formDay = 'form' . $day;
+		$inputDay = "input" . $day;
 
 		echo '
 			<div class="divDani" id="'.$day.'">
 				<div class="formUpis">
 					<h2 class="danNaslov">'.ucfirst($day).'</h2>
 
-					<form id="'.$formDay.'" name="'.$formDay.'" class="formTje" method="POST" action="" onsubmit=\'putFocus("'.$formDay.'")\'>
+					<form id="'.$formDay.'" name="'.$formDay.'" class="formTje" method="POST" action="" onsubmit=\'setFocusCookie("'.$inputDay.'")\'>
 
-						<input type="text" class="upisPodaci" name="upis"/>
+						<input type="text" class="upisPodaci" name="upis" id="'.$inputDay.'"/>
 						<input type="text" name="dan" class="danSakrij" value="'.$day.'">
 						<button class="subKalendar">✓</button>
 

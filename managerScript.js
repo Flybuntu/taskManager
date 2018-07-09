@@ -1,20 +1,48 @@
 /* Da znamo na kojem smo siteu */
 
 var siteLocation = window.location.pathname.split("/");
+console.log(siteLocation);
 
+
+/* Vracamo focus na input nakon entera !Trenutno nije u funkciji */
+
+function putFocus(id) 
+{
+	document.getElementById(id).focus();
+}
+
+/* manager.php sredivanje cookie-je za focus */
+
+function setFocusCookie(id)
+{
+	/* Stvaramo cookie-je radi focus-a */
+
+	document.cookie = "idZaFocusMan=" + id;
+}
+
+console.log(document.cookie);
 
 /* ovo je radi focusa*/
 
-var keksi = document.cookie.split("; ");
-var keksiSlozeni = {};
 
-for(var i=0; i<keksi.length; i++)
+if(siteLocation[siteLocation.length-1] == "tasks.php"  || siteLocation[siteLocation.length-1] == "manager.php")
 {
-	var odvajanje = keksi[i].split("=");
-	if(odvajanje[0] == "idZaFocus")
-	{
-    document.getElementById(odvajanje[1]).focus();
+	var keksi = document.cookie.split("; ");
+	console.log("Ovo su keksi " + keksi);
 
+	for(var i=0; i<keksi.length; i++)
+	{
+		var odvajanje = keksi[i].split("=");
+		console.log(odvajanje);
+		if(odvajanje[0] == "idZaFocus" && siteLocation[siteLocation.length-1] == "tasks.php")
+		{
+	    putFocus(odvajanje[1]);
+		} 
+		else if(odvajanje[0] == "idZaFocusMan" && siteLocation[siteLocation.length-1] == "manager.php")
+		{
+			console.log(typeof(odvajanje[1]));
+			putFocus(odvajanje[1]);
+		}
 	}
 }
 
@@ -75,6 +103,7 @@ function putFocus($id)
 }
 
 
+/* tasks.php dodajemo pojedinacne zadatke*/
 
 function tasksInj(task)
 {	
@@ -91,18 +120,16 @@ function tasksInj(task)
 
 	var xhr = new XMLHttpRequest();
 
-
-
 	xhr.open("GET", "ajaxInj.php?taskGlobalValue=" + taskInj + "&taskGlobalId=" + taskId , true);
 
 	xhr.send();
 
-	var poruka = '<div class="divCheck"><input type="checkbox" name="zadatakPoj1" class="checkBox" id="zadatakPoj1"><label for="zadatakPoj1"><span></span>nekakav task</label><button class="deleteButton">Delete</button><br/>';
 	
 
 
 	document.cookie = "idZaFocus=" + cistiId;
 
+	/* Te reload da se tablica ispise*/
 	location.reload();
 
 
@@ -172,7 +199,6 @@ function deleteGlobal(ajdi) {
 function openClose(id) 
 {
 
-	console.log(id);
 	var numId = id.substring(6);
 	var zadId = document.getElementById("zadaciGlobal" + numId);
 	var imeId = "zadaciGlobal" + numId;
@@ -196,7 +222,6 @@ function openClose(id)
 	}
 
 	xhr.send();
-	console.log(xhr);
 }
 
 
@@ -205,7 +230,6 @@ function openClose(id)
 function checkOpenClose() 
 {
 
-	console.log("U check open closeu sam!");
 
 	var prozori = document.getElementsByClassName("zadaciGlobal");
 
@@ -222,7 +246,6 @@ function checkOpenClose()
 		{
 			var s = this.responseText;
 			var arrOpenClose = JSON.parse(s);
-			console.log(arrOpenClose);
 
 			for(var i=0; i<arrOpenClose.length; i++)
 			{
