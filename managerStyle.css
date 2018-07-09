@@ -21,6 +21,11 @@ body {
 
 }
 
+main {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
 /* NAVIGACIJA nav.php	*/
 
 nav {
@@ -104,18 +109,19 @@ h1 {
 /* FORMA manager.php */
 
 .formUpis {
-	width: 500px;
+	width: 96%;
 	margin: 10px;
 }
 
 .upisPodaci {
 	display: inline-block;
+	float: left;
 	margin: 4px 30px;
-	width: 50%;
+	width: 65%;
 	border: none;
 	padding: 5px;
-	border: 1px solid black;
 	border-radius: 5px;
+
 }
 
 .danSakrij {
@@ -124,6 +130,7 @@ h1 {
 
 .danNaslov {
 	display: inline-block;
+	float: left;
 	width: 100px;
 	font-family: arial, helvetica, sans-serif;
 	padding: 10px 10px;
@@ -131,18 +138,21 @@ h1 {
 }
 
 .subKalendar {
-	display: inline-block;
-	height: 25px;
-	width: 30px;
-	margin: 4px 0px 15px;
-	border: 1px solid black;
-	border-radius: 20px;
-	background-color: green;
-	font-weight: bold;
-	color: white;
-	font-size: 1.2em;
-}
+	float: right;
+	width: 90px;
+	padding: 5px;
+  font-family: 'Oxygen', sans-serif;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+ 	background: #2E4A62;
 
+
+}
+.subKalendar:hover {
+	background: #0000CD;
+}
 .divDani {
 	color: white;
 

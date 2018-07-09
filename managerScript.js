@@ -38,14 +38,19 @@ if(siteLocation[siteLocation.length-1] == "tasks.php"  || siteLocation[siteLocat
 		{
 	    putFocus(odvajanje[1]);
 		} 
-		else if(odvajanje[0] == "idZaFocusMan" && siteLocation[siteLocation.length-1] == "manager.php")
+		else if(odvajanje[0] == "idZaFocusMan" && siteLocation[siteLocation.length-1] == "manager.php" && odvajanje[1] != '')
 		{
-			console.log(typeof(odvajanje[1]));
+			console.log(odvajanje[1]);
 			putFocus(odvajanje[1]);
 		}
 	}
 }
 
+
+/* Ovo je kod manager.php radi brisanje cookie da nas focus ne zajebava kad brisemo */
+function clearCookieForm() {
+	document.cookie = "idZaFocusMan=";
+}
 
 /* manager.php Ovdje koristimo AJAX da vidimo jel smo obavili zadatak */
 

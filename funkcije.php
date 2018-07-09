@@ -32,17 +32,17 @@ class Funkcije
 		echo '
 			<div class="divDani" id="'.$day.'">
 				<div class="formUpis">
-					<h2 class="danNaslov">'.ucfirst($day).'</h2>
+					<h2 class="danNaslov">'.ucfirst($day).':</h2>
 
 					<form id="'.$formDay.'" name="'.$formDay.'" class="formTje" method="POST" action="" onsubmit=\'setFocusCookie("'.$inputDay.'")\'>
 
 						<input type="text" class="upisPodaci" name="upis" id="'.$inputDay.'"/>
 						<input type="text" name="dan" class="danSakrij" value="'.$day.'">
-						<button class="subKalendar">✓</button>
+						<button class="subKalendar">Enter task</button>
 
 					</form>
 				</div>
-				<br>
+				<hr/>
 
 			';
 			;
@@ -55,7 +55,7 @@ class Funkcije
 
 						<div class="zadaci zadaci'.$day.'">
 
-							<form class="deleteForm" name="delete'.$zadatak["id"].'" method="POST" action="" enctype="multipart/form-data">
+							<form class="deleteForm" name="delete'.$zadatak["id"].'" method="POST" action="" onsubmit="clearCookieForm()" enctype="multipart/form-data">
 								<div class="divCheck">
 								<input type="checkbox" id="check' . $zadatak["id"] . '" class="checkBox" '; 
 					if($zadatak["checked"] == "yes" ) /* ovo je za ak smo obavili zadatak da ga precrta */
@@ -72,7 +72,7 @@ class Funkcije
 								</div>
 							</form>
 						</div>
-
+						<hr/>
 					' ;
 				}
 				
