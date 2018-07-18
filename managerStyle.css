@@ -219,7 +219,7 @@ input[type="checkbox"]:checked + label {
 
 /* DELETE GUMB za brisat taskov manage.php */
 
-.deleteButton {
+.deleteButton  {
 	float: right;
 	width: 80px;
 	padding: 5px;
@@ -247,8 +247,43 @@ input[type="checkbox"]:checked + label {
 	background: linear-gradient(to bottom, #a90329 0%,#d60423 36%,#bf0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#bf0000',GradientType=0 ); /* IE6-9 */
 }	
+
+.editDaily {
+	float: right;
+	padding: 5px;
+	margin-top: -43px;
+	margin-right: 110px;
+  font-family: 'Oxygen', sans-serif;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+   background: #2E4A62;
+
+
+}
+.editDaily:hover {
+	background: #0000CD
 }
 
+.confirmDailyEdit{
+	float: right;
+	padding: 5px;
+	margin-top: -2px;
+	margin-right: 26px;
+  font-family: 'Oxygen', sans-serif;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+  background: #2E4A62;
+  display: none;
+
+}
+
+.confirmDailyEdit:hover {
+	background: #0000CD
+}
 
 
 

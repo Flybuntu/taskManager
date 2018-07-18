@@ -278,3 +278,105 @@ if(siteLocation[siteLocation.length-1] == "tasks.php")
 {
 	checkOpenClose();
 }
+
+
+/* manager.php edit */
+
+/* svim editima prvo dajemo evenet */
+
+var editManager = document.getElementsByClassName("editDaily");
+
+for(var i=0; i<editManager.length; i++)
+{
+	editManager[i].addEventListener("click", editMan);
+}
+
+/* manager.php za editiranje upisa prva faza formu mjenjamo u input */
+
+function editMan()
+{
+	var idNum = this.id.slice(9);
+	var divName = "zadaci" + idNum;
+
+	var divEdit = document.getElementById(divName);
+
+	
+
+	document.getElementById(this.id).style.display = "none";
+
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("GET", "ajaxInj.php?idEditMan=" + idNum, true );
+
+	xhr.send()
+	console.log(xhr);
+
+	xhr.onreadystatechange = function() 
+	{
+		if(this.readyState == 4  && this.status == 200)
+		{
+			var s = this.responseText;
+			var task = JSON.parse(s);
+			var confirmId = "confirmDailyEdit" + idNum;
+
+			var gumb = "<button id=" + confirmId + " class='confirmDailyEdit'>Confirm</button>";
+
+			console.log(task[0].task);
+	
+			/* Pretvaramo form u input */
+
+			var inputId = "editInputMan" + idNum;
+
+			divEdit.innerHTML = "<input class='upisPodaci' id=" + inputId + "   type='text' value='" + task[0].task + "'>" + gumb;
+			document.getElementById(confirmId).style.display = "block";
+
+			/* For event listeners, for input enter and for button click */
+			
+			var confirmId = "confirmDailyEdit" + idNum;
+			document.getElementById(confirmId).addEventListener("click", editManCon);
+
+			var idInput = "editInputMan" + idNum;
+			var inputTrenutni = document.getElementById(idInput);
+			inputTrenutni.addEventListener("keydown", function(e) {
+			if(e.keyCode === 13 ) {
+				editManCon(idNum);
+			}
+	});
+
+
+
+		}
+
+	}
+}
+
+
+/* manager.php druga faza editiranja upisa */
+
+function editManCon(id) {
+
+	/* Da znamo koji id trebamo promjeniti*/
+	var idBroj = 0;
+
+	if(id)
+	{
+		idBroj = id;
+	}
+
+	if(this.id) {
+		idBroj = this.id.slice(16);
+	}
+
+	/* Text koji mjenjamo */
+	var textId = "editInputMan" + idBroj;
+	var text = document.getElementById(textId).value;
+
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("GET", "ajaxInj.php?editManChangeId=" + idBroj + "&textManChange=" + text, true);	
+	xhr.send();
+	location.reload();
+
+}
+
+

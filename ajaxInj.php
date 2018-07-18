@@ -107,10 +107,6 @@ if( !empty( $_GET["checkOpenClose"]) )
 
 if( !empty($_GET["openClose"]) && !empty($_GET["openCloseId"]) )
 {
-		echo "tu sam > ";
-		echo $_GET["openClose"] . " ";
-		echo $_GET["openCloseId"] . " ";
-
 
 	$sql = "UPDATE `tasksGlobal` SET `opened` = :openClose WHERE `tasksGlobal`.`id` = :id";
 	$change = $conn->prepare($sql);
@@ -118,6 +114,39 @@ if( !empty($_GET["openClose"]) && !empty($_GET["openCloseId"]) )
 	$change->bindParam(":id", $_GET["openCloseId"]);
 	$change->execute();
 
+}
+
+
+/* manager.php za editiranje upisa trebaju mi prvo podaci koje cu editirati prva faza */
+if( !empty($_GET["idEditMan"]))
+{
+	$sql = "SELECT task FROM `tasks` WHERE id = :id";
+	$getTask = $conn->prepare($sql);
+	$getTask->bindParam(":id", $_GET["idEditMan"]);
+
+	$tasks = array();
+
+	if($getTask->execute())
+	{
+		while($row = $getTask->fetch(PDO::FETCH_ASSOC))
+		{
+			$products[] = $row;
+		}
+	}
+
+	echo json_encode($products);
+}
+
+/* manager.php mjenjenje podataka druga faza */
+
+if( !empty($_GET["editManChangeId"]) && !empty($_GET["textManChange"]) )
+{
+	$sql = "UPDATE `tasks` SET `task` = :task WHERE `tasks`.`id` = :id;";
+	$textChange = $conn->prepare($sql);
+	$textChange->bindParam(":task", $_GET["textManChange"]);
+	$textChange->bindParam(":id", $_GET["editManChangeId"]);
+	$textChange->execute();
+	var_dump($textChange);
 }
 
 

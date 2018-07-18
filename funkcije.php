@@ -53,9 +53,9 @@ class Funkcije
 					echo 
 						'
 
-						<div class="zadaci zadaci'.$day.'">
+						<div class="zadaci" id="zadaci'.$zadatak["id"].'">
 
-							<form class="deleteForm" name="delete'.$zadatak["id"].'" method="POST" action="" onsubmit="clearCookieForm()" enctype="multipart/form-data">
+							<form class="deleteForm" name="delete'.$zadatak["id"].'" id="delete'.$zadatak["id"].'" method="POST" action="" onsubmit="clearCookieForm()" enctype="multipart/form-data">
 								<div class="divCheck">
 								<input type="checkbox" id="check' . $zadatak["id"] . '" class="checkBox" '; 
 					if($zadatak["checked"] == "yes" ) /* ovo je za ak smo obavili zadatak da ga precrta */
@@ -71,6 +71,9 @@ class Funkcije
 								<button class="deleteButton">Delete</button>
 								</div>
 							</form>
+							<button class="editDaily" id="editDaily'.$zadatak["id"].'">Edit</button>
+							<button class="confirmDailyEdit" id="confirmDailyEdit'.$zadatak["id"].'">Confirm</button>
+
 						</div>
 						<hr/>
 					' ;
