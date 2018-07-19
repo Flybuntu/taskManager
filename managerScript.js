@@ -327,7 +327,7 @@ function editMan()
 
 			var inputId = "editInputMan" + idNum;
 
-			divEdit.innerHTML = "<input class='upisPodaci' id=" + inputId + "   type='text' value='" + task[0].task + "'>" + gumb;
+			divEdit.innerHTML = "<input class='upisPodaci' id=" + inputId + "   type='text' value='" + task[0].task + "' maxlength='58' >" + gumb;
 			document.getElementById(confirmId).style.display = "block";
 
 			/* For event listeners, for input enter and for button click */

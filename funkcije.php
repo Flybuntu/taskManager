@@ -36,7 +36,7 @@ class Funkcije
 
 					<form id="'.$formDay.'" name="'.$formDay.'" class="formTje" method="POST" action="" onsubmit=\'setFocusCookie("'.$inputDay.'")\'>
 
-						<input type="text" class="upisPodaci" name="upis" id="'.$inputDay.'"/>
+						<input type="text" class="upisPodaci" name="upis" id="'.$inputDay.'" maxlength="58"/>
 						<input type="text" name="dan" class="danSakrij" value="'.$day.'">
 						<button class="subKalendar">Enter task</button>
 
@@ -65,7 +65,7 @@ class Funkcije
 					{
 						echo "";
 					}
-					echo	'><label for="check' . $zadatak["id"] . '"><span></span>' . $zadatak["task"] . '</label>
+					echo	'><label for="check' . $zadatak["id"] . '" class="checkLabel"><span></span>' . $zadatak["task"] . '</label>
 
 								<input type="text" name="delete" class="danSakrij" value="'.$zadatak["id"].'">
 								<button class="deleteButton">Delete</button>
@@ -139,7 +139,7 @@ class Funkcije
 
 
 						<label for="' .$zadatakId . '">
-						<input type="text" name="' .$zadatakId . '" id="' .$zadatakId . '" class="zadatakInput"></label>
+						<input type="text" name="' .$zadatakId . '" id="' .$zadatakId . '" class="zadatakInput" maxlength="58"></label>
 						<button class="upisPodataka" onclick="tasksInj('.$zadatakId.')">Upis</button>
 						<hr/>
 
