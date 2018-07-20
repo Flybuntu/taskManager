@@ -39,10 +39,12 @@ class Funkcije
 						<input type="text" class="upisPodaci" name="upis" id="'.$inputDay.'" maxlength="58"/>
 						<input type="text" name="dan" class="danSakrij" value="'.$day.'">
 						<button class="subKalendar">Enter task</button>
-
+						<br>
 					</form>
+					<br/>
+					<br/>
+					<hr/>
 				</div>
-				<hr/>
 
 			';
 			;
@@ -139,9 +141,8 @@ class Funkcije
 
 
 						<label for="' .$zadatakId . '">
-						<input type="text" name="' .$zadatakId . '" id="' .$zadatakId . '" class="zadatakInput" maxlength="58"></label>
+						<input type="text" name="' .$zadatakId . '" id="' .$zadatakId . '" class="zadatakInput" ></label>
 						<button class="upisPodataka" onclick="tasksInj('.$zadatakId.')">Upis</button>
-						<hr/>
 
 
 				';
@@ -161,8 +162,9 @@ class Funkcije
 						
 						echo '
 						id="' . $zadTekstId . '">
-						<label for="' . $zadTekstId . '"><span></span>' . $tekst["tasks"] . '</label>
-						<button class="deleteButton" id="' . $delButId . '">Delete</button><br/>
+						<label class="tasksText" for="' . $zadTekstId . '"><span></span>' . $tekst["tasks"] . '</label>
+						<button class="deleteButton" id="' . $delButId . '">Delete</button>
+						<button class="editButton " id="editButton' . $tekst["id"] . '">Edit</button>
 						</div>
 						<hr/>
 						';

@@ -139,7 +139,7 @@ h1 {
 
 .subKalendar {
 	float: right;
-	width: 90px;
+	width: 100px;
 	padding: 5px;
   font-family: 'Oxygen', sans-serif;
   border-radius: 5px;
@@ -494,10 +494,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d8cf4', end
 	color: #990A22;
 }
 
-hr {
-	width: 95%;
-	border-color: grey;
-}
+
 
 
 .zadatakInput {
@@ -548,4 +545,53 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d8cf4', end
 	background-repeat: no-repeat;
 	width: 27px;
 	height: 40px;	
+}
+
+
+/* tasks.php edit i confirm gumbi */
+
+.editButton {
+	float: right;
+	padding: 5px;
+	margin-top: -5px;
+	margin-right: 10px;
+  font-family: 'Oxygen', sans-serif;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+  background: #2E4A62;
+
+
+}
+.ediButton:hover {
+	background: #0000CD
+}
+
+.confirmDailyEdit{
+	float: right;
+	padding: 5px;
+	margin-top: -2px;
+	margin-right: 26px;
+  font-family: 'Oxygen', sans-serif;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+  background: #2E4A62;
+  display: none;
+
+}
+
+.confirmDailyEdit:hover {
+	background: #0000CD
+}
+
+.tasksText span {
+	width: 300px;
+}
+
+hr {
+	border-color: grey;
+	width: 800px%;
 }
