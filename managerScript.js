@@ -1,7 +1,9 @@
 /* Da znamo na kojem smo siteu */
 
-var siteLocation = window.location.pathname.split("/");
+var siteLocArr = window.location.pathname.split("/");
+siteLocation = siteLocArr[siteLocArr.length-1];
 console.log(siteLocation);
+
 
 
 /* Vracamo focus na input nakon entera !Trenutno nije u funkciji */
@@ -25,7 +27,7 @@ console.log(document.cookie);
 /* ovo je radi focusa*/
 
 
-if(siteLocation[siteLocation.length-1] == "tasks.php"  || siteLocation[siteLocation.length-1] == "manager.php")
+if(siteLocation == "tasks.php"  || siteLocation == "manager.php")
 {
 	var keksi = document.cookie.split("; ");
 	console.log("Ovo su keksi " + keksi);
@@ -391,4 +393,31 @@ function editManCon(id) {
 
 }
 
+
+/* tasks.php edit text */
+
+if(siteLocation == "tasks.php") 
+{
+	var editGumbiGlobal = document.getElementsByClassName("editButton");
+	for(var i=0; i<editGumbiGlobal.length; i++ )
+	{
+		editGumbiGlobal[i].addEventListener("click", editTasksGlobal, true);
+	}
+}
+
+function editTasksGlobal() {
+	var id = this.id.slice(10);
+	var divId = "divCheckId" + id;
+	var divGet = document.getElementById(divId);
+	var inputId = "editInputGlo" + id;
+	var confirmIdGlo = "confirmIdGlobal" + id;
+
+	/* html koji ubacujemo nakon sto stisnemo edit */
+	var inputEditHtml = "<input type='text' class='upisPodaci' id='" + inputId +"' />";
+	var gumb = "<button id=" + confirmIdGlo + " class='confirmGlobalEdit'>Confirm</button><br/><br/>";
+
+	divGet.innerHTML = inputEditHtml + gumb;
+
+
+}
 

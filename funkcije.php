@@ -152,9 +152,10 @@ class Funkcije
 				{
 					$zadTekstId = "zaPoj" . $tekst["id"];
 					$delButId = "butDel" . $tekst["id"];
+					$divCheckId = "divCheckId" . $tekst["id"];
 
 					echo '
-						<div class="divCheck">
+						<div class="divCheck" id="' . $divCheckId . '">
 						<input type="checkbox" name="' . $zadTekstId . '" class="checkBox"';
 						/* precrtavamo chekirane */
 						if($tekst["checked"] == "yes") { echo "checked"; }
@@ -164,7 +165,7 @@ class Funkcije
 						id="' . $zadTekstId . '">
 						<label class="tasksText" for="' . $zadTekstId . '"><span></span>' . $tekst["tasks"] . '</label>
 						<button class="deleteButton" id="' . $delButId . '">Delete</button>
-						<button class="editButton " id="editButton' . $tekst["id"] . '">Edit</button>
+						<button class="editButton " id="editButton' . $tekst["id"] . '"  >Edit</button>
 						</div>
 						<hr/>
 						';
