@@ -146,8 +146,37 @@ if( !empty($_GET["editManChangeId"]) && !empty($_GET["textManChange"]) )
 	$textChange->bindParam(":task", $_GET["textManChange"]);
 	$textChange->bindParam(":id", $_GET["editManChangeId"]);
 	$textChange->execute();
-	var_dump($textChange);
 }
 
+
+if( !empty($_GET["editGlobalInfoId"]))
+{
+	$sql = "SELECT `tasks` FROM `pojediniTask` WHERE id = :id";
+	$getTask = $conn->prepare($sql);
+	$getTask->bindParam(":id", $_GET["editGlobalInfoId"]);
+	$rezultati = array();
+	
+	if($getTask->execute())
+	{
+		while($row = $getTask->fetch(PDO::FETCH_ASSOC))
+		{
+			$rezultati[] = $row;
+		}
+	}
+
+	echo json_encode($rezultati);
+
+}
+
+if( !empty($_GET["gloEditId"]) && !empty($_GET["gloEditText"]) )
+{
+	$sql = "UPDATE `pojediniTask` SET `tasks` = :tasks WHERE `pojediniTask`.`id` = :id;";
+	$promjeni = $conn->prepare($sql);
+	echo $_GET["gloEditText"] . $_GET["gloEditId"];
+	$promjeni->bindParam(":tasks", $_GET["gloEditText"]);
+	$promjeni->bindParam(":id", $_GET["gloEditId"]);
+	$promjeni->execute();
+
+}
 
 ?>

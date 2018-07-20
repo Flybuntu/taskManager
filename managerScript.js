@@ -334,9 +334,8 @@ function editMan()
 
 			/* For event listeners, for input "enter" and for button "click" */
 			
-			var confirmId = "confirmDailyEdit" + idNum;
 			document.getElementById(confirmId).addEventListener("click", editManCon);
-			console.log("Firefox sta seres!");
+
 			var idInput = "editInputMan" + idNum;
 			var inputTrenutni = document.getElementById(idInput);
 			inputTrenutni.addEventListener("keydown", function(e) {
@@ -412,12 +411,79 @@ function editTasksGlobal() {
 	var inputId = "editInputGlo" + id;
 	var confirmIdGlo = "confirmIdGlobal" + id;
 
-	/* html koji ubacujemo nakon sto stisnemo edit */
-	var inputEditHtml = "<input type='text' class='upisPodaci' id='" + inputId +"' />";
-	var gumb = "<button id=" + confirmIdGlo + " class='confirmGlobalEdit'>Confirm</button><br/><br/>";
+	/* Ajax da uzmemo tekst koji treba editirati */
 
-	divGet.innerHTML = inputEditHtml + gumb;
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("GET", "ajaxInj.php?editGlobalInfoId=" + id, true);
+
+	xhr.send();
+	console.log(xhr);
+
+	xhr.onreadystatechange = function()
+	{
+		if(this.readyState == 4 && this.status == 200 )
+		{
+			var text = JSON.parse(xhr.responseText)[0].tasks;
+
+			/* html koji ubacujemo nakon sto stisnemo edit */
+
+			var inputEditHtml = "<textarea rows='5' cols='50' class='upisPodaci' id='" + inputId + "'>" + text +"</textarea><br>";
+			var gumb = "<button id=" + confirmIdGlo + " class='confirmGlobalEdit'>Confirm</button><br/><br/>";
+			divGet.innerHTML = inputEditHtml + gumb;	
+
+
+			/* For event listeners, for input "enter" and for button "click" */
+			
+			document.getElementById(confirmIdGlo).addEventListener("click", editTaskGloConfirm);
+
+			
+			var inputTrenutni = document.getElementById(inputId);
+			inputTrenutni.addEventListener("keydown", function(e) 
+			{
+				if(e.keyCode === 13 ) 
+				{
+					editTaskGloConfirm(id);
+				}
+			});
+		}
+	}
+}
+
+function editTaskGloConfirm(id)
+{
+		/* Da znamo koji id trebamo primjeniti */
+	var idBroj = 0;
+	var poslano = "";
+
+	if(id)
+	{
+		idBroj = id;
+	}
+
+	if(this.id) {
+		idBroj = this.id.slice(15);
+	}
+
+	var textareaId = "editInputGlo" + idBroj;
+	console.log(textareaId);
+	var text = document.getElementById(textareaId).value;
+	console.log(text);
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("POST", "ajaxInj.php?gloEditId=" + idBroj + "&gloEditText=" + text, true);
+
+	xhr.send()
+	console.log(xhr);
+
+	xhr.onreadystatechange = function() {
+		if(this.readyState == 4 && this.status == 200)
+		{
+			location.reload();
+		}
+	}
+
+
 
 
 }
-
