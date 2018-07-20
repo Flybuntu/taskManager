@@ -319,7 +319,7 @@ function editMan()
 			var task = JSON.parse(s);
 			var confirmId = "confirmDailyEdit" + idNum;
 
-			var gumb = "<button id=" + confirmId + " class='confirmDailyEdit'>Confirm</button>";
+			var gumb = "<button id=" + confirmId + " class='confirmDailyEdit'>Confirm</button><br/><br/>";
 
 			console.log(task[0].task);
 	
@@ -330,11 +330,11 @@ function editMan()
 			divEdit.innerHTML = "<input class='upisPodaci' id=" + inputId + "   type='text' value='" + task[0].task + "' maxlength='58' >" + gumb;
 			document.getElementById(confirmId).style.display = "block";
 
-			/* For event listeners, for input enter and for button click */
+			/* For event listeners, for input "enter" and for button "click" */
 			
 			var confirmId = "confirmDailyEdit" + idNum;
 			document.getElementById(confirmId).addEventListener("click", editManCon);
-
+			console.log("Firefox sta seres!");
 			var idInput = "editInputMan" + idNum;
 			var inputTrenutni = document.getElementById(idInput);
 			inputTrenutni.addEventListener("keydown", function(e) {
@@ -357,6 +357,7 @@ function editManCon(id) {
 
 	/* Da znamo koji id trebamo promjeniti*/
 	var idBroj = 0;
+	var poslano = "";
 
 	if(id)
 	{
@@ -373,9 +374,20 @@ function editManCon(id) {
 
 	var xhr = new XMLHttpRequest();
 
-	xhr.open("GET", "ajaxInj.php?editManChangeId=" + idBroj + "&textManChange=" + text, true);	
+	xhr.open("POST", "ajaxInj.php?editManChangeId=" + idBroj + "&textManChange=" + text, true);	
+	
 	xhr.send();
-	location.reload();
+	
+	
+	/* Ovo sam morao radi firefoxa reloadao je prije neg sto bi AJAX obavio posao */
+	xhr.onreadystatechange = function() 
+	{
+		if(this.readyState == 4  && this.status == 200)
+		{
+			location.reload();
+		}
+	}
+
 
 }
 
